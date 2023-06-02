@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+footer {
+  background-color: #0768ab;
+  text-align: center;
+  color: #fff;
+  flex-shrink: 0;
+  height: 20px;
+}
+
+footer p {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
