@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <Monitoring />,
   },
   {
-    path: "/avarias/:id",
+    path: "/grup/:id",
     element: <AvariasDetails />,
   },
 ]);

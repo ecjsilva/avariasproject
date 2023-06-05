@@ -35,25 +35,25 @@ export default function Monitoring() {
               {avarias.map((avarias) => {
                 return (
                   <tr>
-                    <td key={avarias.DATA} className="conteudo">
+                    <td key={avarias.DATAGRUPO} className="conteudo">
                       <a
-                        href={`/avarias/${avarias.CODAVARIA}`}
+                        href={`/grup/${avarias.CODGRUPO}`}
                         className="conteudo"
                       >
-                        {dayjs(avarias.DATA).format("DD/MM/YYYY")}
+                        {dayjs(avarias.DATAGRUPO).format("DD/MM/YYYY")}
                       </a>
                     </td>
                     <td>
                       <a
-                        href={`/avarias/${avarias.CODAVARIA}`}
+                        href={`/grup/${avarias.CODGRUPO}`}
                         className="conteudo"
                       >
-                        {avarias.FORNECEDOR}
+                        {avarias.CODFORNEC}
                       </a>
                     </td>
                     <td>
                       <a
-                        href={`/avarias/${avarias.CODAVARIA}`}
+                        href={`/grup/${avarias.CODGRUPO}`}
                         className="conteudo"
                       >
                         AGUARDANDO
@@ -61,19 +61,16 @@ export default function Monitoring() {
                     </td>
                     <td>
                       <a
-                        href={`/avarias/${avarias.CODAVARIA}`}
+                        href={`/grup/${avarias.CODGRUPO}`}
                         className="conteudo"
                       >
                         AGUARDANDO
                       </a>
                     </td>
 
-                    <a
-                      href={`/avarias/${avarias.CODAVARIA}`}
-                      className="conteudo"
-                    >
+                    <a href={`/grup/${avarias.CODGRUPO}`} className="conteudo">
                       <td>
-                        {avarias.PUNIT.toLocaleString("pt-br", {
+                        {avarias.VALORDOGRUPO.toLocaleString("pt-br", {
                           style: "currency",
                           currency: "BRL",
                         })}
