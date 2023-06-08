@@ -10,7 +10,6 @@ export default function Navbar() {
         </div>
         <div className="containerNav">
           <a href="/">Visualizar processos</a>
-          <a href="/">Atualizar processos</a>
         </div>
       </div>
     </>

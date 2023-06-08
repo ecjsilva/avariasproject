@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Monitoring from "./pages/MonitoringProcess";
 import AvariasDetails from "./pages/avarias/index";
 
+//Rotas para paginas
 const router = createBrowserRouter([
   {
     path: "/",

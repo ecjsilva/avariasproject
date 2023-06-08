@@ -1,12 +1,19 @@
 const oracledb = require("oracledb");
 oracledb.initOracleClient({ libDir: "C:\\oracle\\instantclient_11_2" });
 
+//Conexão com o banco de dados
+const {
+  ORACLE_USER,
+  ORACLE_PASSWORD,
+  ORACLE_CONNECTSTRING,
+} = require("../../config");
+
 var knex = require("knex")({
   client: "oracledb",
   connection: {
-    host: "192.168.1.247",
-    user: "teste",
-    password: "teste",
+    host: ORACLE_CONNECTSTRING,
+    user: ORACLE_USER,
+    password: ORACLE_PASSWORD,
     database: "teste",
   },
 });

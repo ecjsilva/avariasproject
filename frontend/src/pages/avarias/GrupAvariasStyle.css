@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+.container-status {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 90px;
+}
+
+.not-complet {
+  border-radius: 200px;
+  box-shadow: 2px 3px gray;
+  border: 2px solid black;
+}
+
+.complet {
+  border-radius: 200px;
+  box-shadow: 2px 3px gray;
+  border: 2px solid rgb(21, 255, 0);
+}
+
+.status p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+.container-table-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}
+
+.table-process {
+  width: 50%;
+}
+
+td {
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+}
+
+.body-form {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(214, 214, 214);
+  width: 40rem;
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+.fields {
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fields input {
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 2px 2px rgb(184, 184, 184);
+}
+
+select {
+  width: 400px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 2px 2px rgb(184, 184, 184);
+}

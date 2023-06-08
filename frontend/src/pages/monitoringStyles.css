@@ -30,7 +30,7 @@ tr {
 }
 
 tr:hover {
-  background-color: #f12325;
+  background-color: #d8d8d8;
   cursor: pointer;
 }
 
@@ -59,16 +59,16 @@ th:hover {
   text-align: left;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  background-color: #0768ab;
+  background-color: #6b6b6b;
   color: #000000;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0768ab;
+  background-color: #6b6b6b;
 }
 
 @-webkit-keyframes scale-in-center {

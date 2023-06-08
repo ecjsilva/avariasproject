@@ -1,5 +1,6 @@
 const knex = require("../database/database");
 
+//Consulta os dados iniciais
 module.exports = {
   async index(req, res) {
     const results = await knex("*")
