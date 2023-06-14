@@ -20,11 +20,13 @@ export default function Monitoring() {
     <>
       <div className="background">
         <h1>PROCESSOS</h1>
+        <div className="input-wrapper"></div>
         <div className="container-table">
           <table>
             <thead>
               <tr>
                 <th className="conteudo-col">Data</th>
+                <th className="conteudo-col">Código Grupo</th>
                 <th className="conteudo-col">Fornecedor</th>
                 <th className="conteudo-col">Coleta Agendada</th>
                 <th className="conteudo-col">Tratativa</th>
@@ -35,9 +37,9 @@ export default function Monitoring() {
               {avarias.map((avarias) => {
                 return (
                   <tr>
-                    <td key={avarias.DATAGRUPO} className="conteudo">
+                    <td key={avarias.CODGRUPOAVARIA}>
                       <a
-                        href={`/grup/${avarias.CODGRUPO}`}
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
                         className="conteudo"
                       >
                         {dayjs(avarias.DATAGRUPO).format("DD/MM/YYYY")}
@@ -45,15 +47,23 @@ export default function Monitoring() {
                     </td>
                     <td>
                       <a
-                        href={`/grup/${avarias.CODGRUPO}`}
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
                         className="conteudo"
                       >
-                        {avarias.CODFORNEC}
+                        {avarias.CODGRUPOAVARIA}
                       </a>
                     </td>
                     <td>
                       <a
-                        href={`/grup/${avarias.CODGRUPO}`}
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
+                        className="conteudo"
+                      >
+                        {avarias.FORNECEDOR}
+                      </a>
+                    </td>
+                    <td>
+                      <a
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
                         className="conteudo"
                       >
                         AGUARDANDO
@@ -61,21 +71,23 @@ export default function Monitoring() {
                     </td>
                     <td>
                       <a
-                        href={`/grup/${avarias.CODGRUPO}`}
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
                         className="conteudo"
                       >
                         AGUARDANDO
                       </a>
                     </td>
-
-                    <a href={`/grup/${avarias.CODGRUPO}`} className="conteudo">
-                      <td>
+                    <td>
+                      <a
+                        href={`/grup/${avarias.CODGRUPOAVARIA}`}
+                        className="conteudo"
+                      >
                         {avarias.VALORDOGRUPO.toLocaleString("pt-br", {
                           style: "currency",
                           currency: "BRL",
                         })}
-                      </td>
-                    </a>
+                      </a>
+                    </td>
                   </tr>
                 );
               })}

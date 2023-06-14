@@ -3,14 +3,13 @@ import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import "./GrupAvariasStyle.css";
 import boxbroken from "../../assets/boxbroken.png";
 import agendadopng from "../../assets/agendadopng.png";
-import trativapng from "../../assets/tratativapng.png";
 import nfpng from "../../assets/nfpng.png";
 import pagamentopng from "../../assets/pagamentopng.png";
 import finalizadopng from "../../assets/finalizadopng.png";
 
 export default function AvariasDetails() {
   const { id } = useParams(); //Pegando parametro da URL
-  const [avarias, setAvarias] = useState([]); 
+  const [avarias, setAvarias] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:9090/grup/${id}`, { method: "GET" })
       .then((res) => res.json())
@@ -19,8 +18,7 @@ export default function AvariasDetails() {
       });
   }, [id]); //Fazendo busca no banco
 
-
-   //Alterando style conforme dados recebidos
+  //Alterando style conforme dados recebidos
   const [styleg, setStyleg] = useState("not-complet");
   const ngrup = useRef();
   useLayoutEffect(() => {
@@ -28,16 +26,6 @@ export default function AvariasDetails() {
       setStyleg("not-complet");
     } else {
       setStyleg("complet");
-    }
-  }, []);
-
-  const [stylef, setStylef] = useState("not-complet");
-  const fornec = useRef();
-  useLayoutEffect(() => {
-    if (fornec.current.value === "") {
-      setStylef("not-complet");
-    } else {
-      setStylef("complet");
     }
   }, []);
 
@@ -72,11 +60,13 @@ export default function AvariasDetails() {
   }, []);
 
   const [stylefin, setStylefin] = useState("not-complet");
-  const fin = useRef();
+  const situacao = useRef();
   useLayoutEffect(() => {
-    if (fin.current.value === "1") {
+    if (pg.current.value === "") {
+      situacao.current.value = "Pendente";
       setStylefin("not-complet");
     } else {
+      situacao.current.value = "Concluído";
       setStylefin("complet");
     }
   }, []);
@@ -90,10 +80,6 @@ export default function AvariasDetails() {
         <div className="status">
           <img src={boxbroken} alt="boxbroken" className={styleg} />
           <p>Grupo de avarias</p>
-        </div>
-        <div className="status">
-          <img src={trativapng} alt="tratativapng" className={stylef} />
-          <p>Combinar tratativa</p>
         </div>
         <div className="status">
           <img src={nfpng} alt="nfpng" className={stylenf} />
@@ -119,19 +105,24 @@ export default function AvariasDetails() {
               <th className="conteudo-col">Código</th>
               <th className="conteudo-col">Descrição</th>
               <th className="conteudo-col">Quantidade</th>
-              <th className="conteudo-col">Observação</th>
+              <th className="conteudo-col">Valor</th>
             </tr>
           </thead>
           <tbody>
             {avarias.map((avarias) => {
               return (
                 <tr>
-                  <td className="conteudo" key={avarias.CODPROD}>
+                  <td className="conteudo" key={avarias.VALORDOGRUPO}>
                     {avarias.CODPROD}
                   </td>
-                  <td className="conteudo">{avarias.CODFORNEC}</td>
-                  <td className="conteudo">{avarias.QT}</td>
-                  <td className="conteudo">{avarias.TIPOAVARIA}</td>
+                  <td className="conteudo">{avarias.DESCRICAO}</td>
+                  <td className="conteudo">{avarias.QTORIGINAL}</td>
+                  <td>
+                    {avarias.VALORDOGRUPO.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </td>
                 </tr>
               );
             })}
@@ -147,36 +138,27 @@ export default function AvariasDetails() {
             </div>
             <div className="fields">
               <label>Fornecedor: </label>
-              <input type="text" value="PAMESA DO BRASIL S/A" />
+              <input type="text" value="ELETRO ZAGONEL LTDA" />
             </div>
             <div className="fields">
               <label>E-mail: </label>
-              <input
-                type="text"
-                value="josegoncalvesmaiafilho@gmail.com"
-                ref={fornec}
-              />
+              <input type="text" value="repesentante@gmail.com" />
             </div>
             <div className="fields">
               <label>Tratativa: </label>
-              <input type="text" ref={pg} />
+              <input type="text" value="" ref={pg} />
             </div>
             <div className="fields">
               <label>NFD: </label>
-              <input type="text" value={74526} ref={nf} />
+              <input type="text" value="34243" ref={nf} />
             </div>
             <div className="fields">
               <label>Data da coleta: </label>
-              <input type="date" value="2018-07-22" ref={agn} />
+              <input type="text" value="10/06/2023" ref={agn} />
             </div>
             <div className="fields">
               <label>Situação: </label>
-              <select ref={fin} name="select">
-                <option value="1" selected>
-                  Pendente
-                </option>
-                <option value="2">Concluído</option>
-              </select>
+              <input type="text" ref={situacao} />
             </div>
           </form>
         </div>

@@ -5,3 +5,8 @@
   box-sizing: border-box;
   font-family: "Lora", serif;
 }
+
+.container-main {
+  background: linear-gradient(360deg, #ffffff, #cacaca);
+  background-repeat: no-repeat;
+}

@@ -1,7 +1,3 @@
-var path = require("path");
-process.env["PATH"] =
-path.join(__dirname, "/instantclient") + ";" + process.env["PATH"];
-process.env["ORACLE_HOME"] = path.join(__dirname, "/instantclient");
 const express = require("express");
 const routes = require("./routes");
 const cors = require("cors");

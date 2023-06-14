@@ -1,5 +1,7 @@
+const path = require("path");
 const oracledb = require("oracledb");
-oracledb.initOracleClient({ libDir: "\\avarias\\instantclient_11_2" });
+
+oracledb.initOracleClient({ libDir: "C:\\Users\\emerson.silva\\Desktop\\Projeto Avarias\\backend\\node_modules\\instantclient_11_2" });
 
 //Conexão com o banco de dados
 const {

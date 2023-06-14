@@ -48,10 +48,11 @@ img {
 
 .table-process {
   width: 50%;
+  border: 1px solid black;
 }
 
 td {
-  font-size: 22px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
 }
 

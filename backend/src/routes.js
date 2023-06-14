@@ -1,8 +1,9 @@
 const express = require("express");
 const routes = express.Router();
 
-const AvariasController = require("./controllers/AvariasController");
+const AvariasController = require("./controllers/CodAvariaController");
 const GavariasController = require("./controllers/GavariasController");
+
 
 routes.get("/avarias", AvariasController.index);
 
